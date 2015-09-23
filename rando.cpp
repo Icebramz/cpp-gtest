@@ -1,6 +1,7 @@
 #include "rando.h"
 #include<assert.h>
-//#include <stdlib.h>
+#include<cmath>
+#include <stdlib.h>
 
 
 /**
@@ -61,8 +62,72 @@ bool Rando::isPrime(int num)
 **/
 int Rando::nearestToZero(int a, int b)
 {
- while(1)
+ if(a == 0 || b == 0)
  {
-
+  return 1;
+ }
+ else
+ {
+  assert(a != 0 && b != 0);
+  if(a < 0 || b < 0)
+  {
+   if(a < 0 && b > 0)
+   {
+    int a_abs = abs(a);
+    if(a_abs < b)
+    {
+     return a;
+    }
+    else
+    {
+     return b;
+    }
+   }
+   else if(a > 0 && b < 0)
+   {
+    int b_abs = abs(b);
+    if(a < b_abs)
+    {
+     return a;
+    }
+    else
+    {
+     return b;
+    }
+   }
+   else
+   {
+    assert(a < 0 && b < 0);
+    if(a < b)
+    {
+     return b;
+    }
+    else
+    {
+     return a;
+    }
+   }
+  }
+  else
+  {
+   assert(a > 0 && b > 0);
+   if(a < b)
+   {
+    return a;
+   }
+   else
+   {
+    return b;
+   }
+  }
  }
 }
+
+
+
+
+
+
+
+
+

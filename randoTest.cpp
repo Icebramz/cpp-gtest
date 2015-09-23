@@ -3,6 +3,7 @@
 **/
 
 #include <gtest/gtest.h>
+#include <cmath>
 #include "rando.h"
 
 /*  
@@ -32,11 +33,17 @@ TEST(RandoTest, allChildrenSmile)
 TEST(RandoTest, isDivisible)
 {
  Rando rando;
- ASSERT_TRUE( rando.isDivisbleBy(167,3) );
+ ASSERT_TRUE( rando.isDivisbleBy(1,3) );
 }
 
 TEST(RandoTest, primeTrue)
 {
  Rando rando;
  ASSERT_TRUE( rando.isPrime(677) );
+}
+
+TEST(RandoTest, nearestZero)
+{
+ Rando rando;
+ ASSERT_EQ( (rando.nearestToZero(4,2)), 2);
 }
